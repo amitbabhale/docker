@@ -1,0 +1,3 @@
+https://golb.hplar.ch/2019/01/docker-on-windows10-home-scratch.html
+
+docker desktop tool installation fails on windows home
