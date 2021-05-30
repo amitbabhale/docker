@@ -1,0 +1,74 @@
+Port and Network:
+
+#	containers themselves can have applications running on ports. When you run a container, if you want to access the application in the container 	via a port number, you need to map the port number of the container to the port number of the Docker host. 
+#	The output of the inspect command gives a JSON output. 
+#	There is a section of "ExposedPorts" and see that there are two ports mentioned. One is the data port of 8080 and the other is the control port of 50000.
+#	To run Jenkins and map the ports, you need to change the Docker run command and add the ‘p’ option which specifies the port mapping. 
+#	docker run -p 8080:8080 -p 50000:50000 jenkins 
+#	The left-hand side of the port number mapping is the Docker host port to map to and the right-hand side is the Docker container port number.
+
+
+Storage Drivers:
+Docker has multiple storage drivers that allow one to work with the underlying storage devices. The following table shows the different storage drivers along with the technology used for the storage drivers.
+
+Technology		Storage Driver
+
+OverlayFS			overlay or overlay2
+AUFS				aufs
+Btrfs				brtfs
+Device Manager		devicemanager
+VFS					vfs
+ZFS					zfs
+
+
+Data Volumes:
+A separate volume that can shared across containers. These are known as data volumes.
+#	They are initialized when the container is created.
+#	They can be shared and also reused amongst many containers.
+#	Any changes to the volume itself can be made directly.
+#	They exist even after the container is deleted.
+
+sudo docker run –d –v /home/demo:/var/jenkins_home –p 8080:8080 –p 50000:50000 jenkins 
+#	map the volume in the container to a local volume
+
+#	Changing the Storage Driver for a Container
+	Docker run –d --volume-driver=flocker –v /home/demo:/var/jenkins_home –p 8080:8080 –p 50000:50000 jenkins
+#	 –volume-driver option is used to specify another storage driver for the container.
+
+#Creating a Volume
+#	docker volume create –-name=volumename –-opt options
+##	name − This is the name of the volume which needs to be created.
+##	opt − These are options you can provide while creating the volume.	
+
+Example
+docker volume create –-name = demo –opt o = size = 100m
+
+
+#Listing all the Volumes
+#docker volume ls
+##	list all the docker volumes on a docker host. 
+
+
+
+Network:
+
+Docker takes care of the networking aspects so that the containers can communicate with other containers and also with the Docker Host. If you do an ifconfig on the Docker Host, you will see the Docker Ethernet adapter. This adapter is created when Docker is installed on the Docker Host.
+##	ifconfig
+## 	ipconfig
+
+docker network ls
+#	list all the networks associated with Docker on the host.
+
+
+docker network inspect networkname 
+##	Deails of network
+##	When a new container is created we can inspect network created with name = 'bridge', It will show recenly created container.
+
+
+docker network create –-driver drivername name 
+##	create a network in Docker before launching containers.
+	##	drivername − This is the name used for the network driver.
+	##	name − This is the name given to the network.
+	
+You can now attach the new network when launching the container. 
+##	example : docker run –it –network=new_nw ubuntu:latest /bin/bash

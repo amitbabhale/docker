@@ -1,0 +1,38 @@
+https://www.tutorialspoint.com/docker/index.htm
+
+Docker :
+Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+
+Features of Docker:
+#	it becomes easier for teams across different units, such as development, QA and Operations to work seamlessly across applications.
+#	You can deploy Docker containers anywhere, on any physical and virtual machines and even on the cloud.
+#	Docker containers are pretty lightweight, they are very easily scalable.
+
+Components of Docker:
+#	Docker component for OS like Linux/Windows/Mac
+#	Docker Engine − It is used for building Docker images and creating Docker containers.
+#	Docker Hub − This is the registry which is used to host various Docker images.
+#	Docker Compose − This is used to define applications using multiple Docker containers.
+
+
+Container Registry:
+Container registries allow users to manage containers distributed throughout their applications and networks. The registry controls privileges to individual containers and allows users to organize and govern their visibility and accessibility. These registries can come in the form of a hosted service or an on-premise solution using local infrastructure. Companies utilize container registries to manage container configurations, store container images, and access them for deployment.
+
+Available options in CR : https://www.g2.com/categories/container-registry
+
+Docker Hub is a registry service on the cloud that allows you to download Docker images that are built by other communities. You can also upload your own Docker built images to Docker hub
+
+Docker tools:
+#	Docker Machine : Enables you to provision and manage Dockerized hosts
+#	Docker Notary  : Allows the signing of container images to enable Docker Content Trust
+
+Docker products:
+#	Docker Cloud: 	Manages multi-container applications and host resources running on a cloud provider (such as Amazon Web Services)
+#	Universal Control Plane (UCP) : Manages your Docker swarm on-premise, or on the cloud
+#	Docker Trusted Registry (DTR): Securely stores and scans your Docker images
+#	Docker Store: Public, Docker-hosted registry that distributes free and paid images from various publishers
+
+
+#docker Image:
+##	An image is a combination of a file system and parameters.
+##	The run command is used to mention that we want to create an instance of an image, which is then called a container.

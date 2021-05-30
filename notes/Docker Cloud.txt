@@ -1,0 +1,49 @@
+Docker Cloud:
+
+#	Docker Cloud is a service provided by Docker in which you can carry out the following operations −
+#	Nodes − You can connect the Docker Cloud to your existing cloud providers such as Azure and AWS to spin up containers on these environments.
+#	Cloud Repository − Provides a place where you can store your own repositories.
+#	Continuous Integration − Connect with Github and build a continuous integration pipeline.
+#	Application Deployment − Deploy and scale infrastructure and containers.
+#	Continuous Deployment − Can automate deployments.
+
+Docker Logging:
+#	Docker has logging mechanisms in place which can be used to debug issues as and when they occur. There is logging at the daemon level and at the container level.
+#	Daemon Logging
+##	At the daemon logging level, there are four levels of logging available −
+##	Debug − It details all the possible information handled by the daemon process.
+##	Info − It details all the errors + Information handled by the daemon process.
+##	Errors − It details all the errors handled by the daemon process.
+##	Fatal − It only details all the fatal errors handled by the daemon process.
+
+#	dockerd –l debug &
+##	dockerd is the executable for the docker daemon process.
+##	The –l option is used to specify the logging level.
+##	& is used to come back to the command prompt after the logging has been enabled
+
+Container Logging
+Docker logs containerID 
+
+
+Docker compose:
+Docker Compose is used to run multiple containers as a single service. For example, suppose you had an application which required NGNIX and MySQL, you could create one file which would start both the containers as a service without the need to start each one separately.
+
+docker-compose version 
+The version details of Docker Compose will be displayed.
+
+Docker-Compose File:
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
+  redis:
+    image: "redis:alpine"
+	
+
+image is used to pull the image from docker hub

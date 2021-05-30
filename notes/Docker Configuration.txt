@@ -1,0 +1,61 @@
+Create a docker image:
+#	Create a file called Docker File
+#	The name of the file has to be "Dockerfile" with "D" as capital
+# 	Build your Docker File using the following instructions.
+	## 	You can add comment to file using '#' 
+	## 	You need o choose the base OS use keyword 'FROM'
+	## 	The metadata of image like who is maintainer of image can be stored in 'MAINTAINER'
+	##	The 'RUN' command is used to run instructions against the image.
+	
+	Example:
+	#This is a sample Image 
+	FROM ubuntu 
+	MAINTAINER demousr@gmail.com 
+
+	RUN apt-get update 
+	RUN apt-get install –y nginx 
+	CMD [“echo”,”Image created”] 
+	
+#Commands
+
+#	docker build 
+##	This method allows the users to build their own Docker images.
+
+###	docker build  -t ImageName:TagName dir
+##	-t − is to mention a tag to the image
+##	ImageName − This is the name you want to give to your image.
+##	TagName − This is the tag you want to give to your image.
+## 	dir − The directory where the Docker File is present.
+
+#	CMD command param1 	
+##	These are commands that are put in the Docker File.
+##	This command is used to execute a command at runtime when the container is executed
+##  command − This is the command to run when the container is launched.
+##	param1 − This is the parameter entered to the command.	
+
+##	While running docker build command its necessary to give repository ad tag.
+##	docker tag d583c3ac45fd myname/server:latest : Command to assign name and tag to image
+
+#ENTRYPOINT:
+This command can also be used to execute commands at runtime for the container. But we can be more flexible with the ENTRYPOINT command.
+
+FROM ubuntu 
+MAINTAINER demousr@gmail.com 
+ENTRYPOINT [“echo”]
+
+
+#ENV
+This command is used to set environment variables in the container.
+ENV key value 
+
+
+FROM ubuntu 
+MAINTAINER demousr@gmail.com 
+ENV var1=Tutorial var2=point 
+
+
+#WORKDIR
+This command is used to set the working directory of the container.
+
+WORKDIR dirname
+dirname − The new working directory. If the directory does not exist, it will be added.
